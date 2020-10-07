@@ -114,3 +114,52 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+
+
+//Step 1  
+
+const articleMaker = (data, parentNode) =>{
+
+  const div = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const p = document.createElement('p');
+  const span = document.createElement('span');
+  const titleTextNode = document.createTextNode(data.title);
+  const dateTextNode = document.createTextNode(data.date);
+  const firstParagraphTextNode = document.createTextNode(data.firstParagraph);
+  const secondParagraphTextNode = document.createTextNode(data.secondParagraph);
+  const thirdParagraphTextNode = document.createTextNode(data.thirdParagraph);
+  const expandButtonTextNode = document.createTextNode('+');
+
+  div.classList.add('article');
+  p.classList.add('date');
+  span.classList.add('expandButton');
+
+  span.appendChild(expandButtonTextNode)
+  p.appendChild(thirdParagraphTextNode)
+  p.appendChild(secondParagraphTextNode)
+  p.appendChild(firstParagraphTextNode)
+  p.appendChild(dateTextNode)
+  h2.appendChild(titleTextNode)
+  div.appendChild(h2)
+  div.appendChild(p)
+  div.appendChild(p)
+  div.appendChild(p)
+  div.appendChild(p)
+  div.appendChild(span)
+
+  parentNode.appendChild(div)
+
+  let expandButton = document.querySelector('.expandButton');
+  expandButton.addEventListener('click', () =>{
+    
+  })
+
+
+
+  
+}
+
+const div = document.querySelector('.articles')
+data.forEach(item => articleMaker(item, div.articles));
