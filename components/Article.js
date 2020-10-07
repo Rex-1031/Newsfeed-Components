@@ -151,12 +151,15 @@ const articleMaker = (data, parentNode) =>{
 
   parentNode.appendChild(div)
 
-  let articleOpen = document.querySelector('.article');
-  
-  articleOpen.addEventListener(()=>{
-
+  let expandButton = document.querySelector('.expandButton');
+  expandButton.addEventListener('click', () =>{
+    
   })
+
 
 
   
 }
+
+const div = document.querySelector('.articles')
+data.forEach(item => articleMaker(item, div.articles));
