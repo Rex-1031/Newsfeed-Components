@@ -119,47 +119,67 @@ const data = [
 
 //Step 1  
 
-const articleMaker = (data, parentNode) =>{
+const articleMaker = (article) =>{
 
   const div = document.createElement('div');
-  const h2 = document.createElement('h2');
-  const p = document.createElement('p');
-  const span = document.createElement('span');
-  const titleTextNode = document.createTextNode(data.title);
-  const dateTextNode = document.createTextNode(data.date);
-  const firstParagraphTextNode = document.createTextNode(data.firstParagraph);
-  const secondParagraphTextNode = document.createTextNode(data.secondParagraph);
-  const thirdParagraphTextNode = document.createTextNode(data.thirdParagraph);
-  const expandButtonTextNode = document.createTextNode('+');
-
   div.classList.add('article');
-  p.classList.add('date');
-  span.classList.add('expandButton');
+  
 
-  span.appendChild(expandButtonTextNode)
-  p.appendChild(thirdParagraphTextNode)
-  p.appendChild(secondParagraphTextNode)
-  p.appendChild(firstParagraphTextNode)
-  p.appendChild(dateTextNode)
-  h2.appendChild(titleTextNode)
-  div.appendChild(h2)
-  div.appendChild(p)
-  div.appendChild(p)
-  div.appendChild(p)
-  div.appendChild(p)
-  div.appendChild(span)
-
-  parentNode.appendChild(div)
-
-  let expandButton = document.querySelector('.expandButton');
-  expandButton.addEventListener('click', () =>{
-    
-  })
+  const h2 = document.createElement('h2');
+    h2.textContent = article.title
+    div.appendChild(h2)
 
 
+  const p1 = document.createElement('p');
+    p1.classList.add('date');
+    p1.textContent = article.date;
+    div.appendChild(p1)
 
+  const p2 = document.createElement('p');
+    p2.textContent =article.firstParagraph
+    div.appendChild(p2)
+
+  const p3 = document.createElement('p');
+    p3.textContent = article.secondParagraph
+    div.appendChild(p3)
+
+  const p4 = document.createElement('p');
+    p4.textContent= article.thirdParagraph
+    div.appendChild(p4)
+
+  const span = document.createElement('span');
+    span.textContent = '+'
+    span.classList.add('expandButton')
+    div.appendChild(span)
+
+
+    span.addEventListener( 'click', (e) =>{
+      div.classList.toggle('article-open');
+    });
+
+
+  return div;
   
 }
 
-const div = document.querySelector('.articles')
-data.forEach(item => articleMaker(item, div.articles));
+const articles = document.querySelector('.articles')
+data.forEach((item) => { articles.appendChild(articleMaker(item))
+});
+
+
+
+randoArt = {
+  title: 'Setting SMART goals for the future',
+    date: 'July 11th, 2020',
+
+    firstParagraph: `Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.`,
+
+    secondParagraph: `Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.`,
+
+    thirdParagraph: `Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.`
+
+}
+
+function pushArticles (){
+ return data.push('randoArt');
+}
