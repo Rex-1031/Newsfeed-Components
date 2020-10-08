@@ -6,6 +6,7 @@ let menuItems = [
   "What's New",
   'Tech Trends',
   'Music',
+  'FAQ',
   'Log Out'
 ];
 
@@ -56,3 +57,5 @@ const ul = document.createElement('ul');
 const header = document.querySelector('.header')
 header.appendChild(menuMaker(menuItems))
 
+menuItems.push ('FAQ');
+console.log(menuItems)
